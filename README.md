@@ -81,7 +81,8 @@ For demonstration, we use a **simulated dataset** based on:
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/yourusername/government-anomaly-detection.git
-cd government-anomaly-detection```
+cd government-anomaly-detection
+```
 
 ### 2. Create a Virtual Environment
 
