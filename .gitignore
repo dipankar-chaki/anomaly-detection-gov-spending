@@ -22,3 +22,8 @@ env/
 # VSCode or PyCharm config
 .vscode/
 .idea/
+
+# Ignore virtual environments
+venv/
+gov-anomaly-env/
+
