@@ -82,21 +82,16 @@ For demonstration, we use a **simulated dataset** based on:
 ```bash
 git clone https://github.com/yourusername/government-anomaly-detection.git
 cd government-anomaly-detection
+
 ### 2. Create a Virtual Environment
-bash
-Copy
-Edit
+
 python3 -m venv venv
 source venv/bin/activate
 ### 3. Install Dependencies
-bash
-Copy
-Edit
+
 pip install -r requirements.txt
 ### 4. Launch Jupyter Notebook
-bash
-Copy
-Edit
+
 jupyter notebook
 Open gov_anomaly_detection.ipynb and run cell by cell.
 
