@@ -85,18 +85,26 @@ cd government-anomaly-detection
 ```
 
 ### 2. Create a Virtual Environment
-
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
+
 ### 3. Install Dependencies
-
+```bash
 pip install -r requirements.txt
-### 4. Launch Jupyter Notebook
+```
 
+### 4. Launch Jupyter Notebook
+```bash
 jupyter notebook
+```
+
 Open gov_anomaly_detection.ipynb and run cell by cell.
 
-🙈 .gitignore
+---
+
+## 🙈 .gitignore
 This project includes a .gitignore file that excludes:
 
 Virtual environments (venv/)
@@ -109,9 +117,14 @@ System files like .DS_Store
 
 Large output files (e.g., .csv exports)
 
-📄 License
+---
+
+## 📄 License
 MIT — use freely with attribution.
 
-🙋‍♂️ Author
+---
+
+## 🙋‍♂️ Author
+
 Dipankar Chaki
 PhD in Computer Science | ML & AI Researcher
