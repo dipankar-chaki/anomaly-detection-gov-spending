@@ -106,15 +106,10 @@ Open gov_anomaly_detection.ipynb and run cell by cell.
 
 ## 🙈 .gitignore
 This project includes a .gitignore file that excludes:
-
 Virtual environments (venv/)
-
 Bytecode files (__pycache__/)
-
 Notebook checkpoints
-
 System files like .DS_Store
-
 Large output files (e.g., .csv exports)
 
 ---
@@ -125,7 +120,5 @@ MIT — use freely with attribution.
 ---
 
 ## 🙋‍♂️ Author
-
 Dipankar Chaki
-
 PhD in Computer Science | ML & AI Researcher
