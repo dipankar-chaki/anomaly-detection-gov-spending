@@ -120,5 +120,6 @@ MIT — use freely with attribution.
 ---
 
 ## 🙋‍♂️ Author
-Dipankar Chaki
+
+**Dipankar Chaki**
 PhD in Computer Science | ML & AI Researcher
