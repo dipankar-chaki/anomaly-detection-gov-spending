@@ -76,6 +76,54 @@ For demonstration, we use a **simulated dataset** based on:
 
 ---
 
+## Model Inference Server
+
+This project includes a production-ready REST API for real-time anomaly detection.
+
+### API Endpoints
+
+#### POST /predict
+Detect anomalies in transaction data.
+
+**Request:**
+```json
+{
+  "amount": 1500.00,
+  "department": "IT",
+  "category": "Software"
+}
+```
+
+**Response:**
+```json
+{
+  "is_anomaly": false,
+  "anomaly_score": 0.23,
+  "status": "success"
+}
+```
+
+### Running the Inference Server
+
+```bash
+# Local deployment
+python inference_server.py
+
+# Docker deployment
+docker build -t anomaly-detector .
+docker run -p 5000:5000 anomaly-detector
+```
+
+### Testing the API
+
+```bash
+curl -X POST http://localhost:5000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"amount": 1500, "department": "IT", "category": "Software"}'
+```
+
+---
+
 ## 📦 Getting Started
 
 ### 1. Clone the Repository
