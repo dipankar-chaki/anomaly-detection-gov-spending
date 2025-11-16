@@ -28,9 +28,11 @@ maintaining privacy controls and compliance requirements.
 ## Key Features
 - Unsupervised anomaly detection processing 1M+ transactions
 - 95% precision with <3% false positive rate
+- **Interactive HTML dashboard** - works offline, no server needed
 - Interactive Power BI dashboard with drill-down capabilities
 - Privacy-preserving analytics with audit trails
 - SHAP-based explainability for regulatory compliance
+- **3-page visualization**: Executive Overview, Detailed Analysis, Explainability
 
 ---
 
@@ -56,6 +58,8 @@ For demonstration, we use a **simulated dataset** based on:
 | **Scikit-learn**        | Isolation Forest for anomaly detection       |
 | **Seaborn & Matplotlib**| Data visualization                           |
 | **SHAP**                | Model interpretability                       |
+| **Plotly**              | Interactive HTML dashboards                  |
+| **Power BI**            | Enterprise dashboard integration (optional)  |
 
 ---
 
@@ -89,6 +93,34 @@ For demonstration, we use a **simulated dataset** based on:
 ## 📁 Output Files
 
 - `anomalies_detected.csv` — flagged transactions with their scores and features
+- `anomaly_detection_dashboard.html` — interactive standalone dashboard (no server required)
+- `powerbi_data/` — 7 CSV files prepared for Power BI visualization
+
+---
+
+## 📊 Interactive Dashboard
+
+### Standalone HTML Dashboard
+Open `anomaly_detection_dashboard.html` in any browser for:
+- **Executive Overview**: KPIs, trends, risk distribution
+- **Detailed Analysis**: Transaction patterns, anomaly heatmaps
+- **Explainability**: Feature importance, methodology
+
+### Power BI Integration
+1. Run `python3 powerbi_data_preparation.py` to generate data files
+2. Follow `POWERBI_SETUP_GUIDE.md` for Power BI setup
+3. Use `powerbi_dashboard_template.pbix.json` as reference
+
+### Viewing the Dashboard
+```bash
+# Generate/update dashboard with latest data
+python3 create_html_dashboard.py
+
+# Open in browser (macOS)
+open anomaly_detection_dashboard.html
+
+# Or simply double-click the HTML file
+```
 
 ---
 
