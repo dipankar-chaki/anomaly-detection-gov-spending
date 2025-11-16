@@ -1,0 +1,264 @@
+{
+  "dashboard_name": "Financial Anomaly Detection Dashboard",
+  "version": "1.0",
+  "pages": [
+    {
+      "page_name": "Executive Overview",
+      "page_number": 1,
+      "visuals": [
+        {
+          "visual_type": "Card",
+          "title": "Total Transactions",
+          "data_source": "executive_metrics.csv",
+          "field": "Total_Transactions",
+          "position": {"x": 0, "y": 0, "width": 280, "height": 100},
+          "format": {"number_format": "#,##0", "font_size": 24}
+        },
+        {
+          "visual_type": "Card",
+          "title": "Anomalies Detected",
+          "data_source": "executive_metrics.csv",
+          "field": "Anomalies_Detected",
+          "position": {"x": 290, "y": 0, "width": 280, "height": 100},
+          "format": {"number_format": "#,##0", "font_size": 24, "color": "#FF6B6B"}
+        },
+        {
+          "visual_type": "Card",
+          "title": "Detection Rate",
+          "data_source": "executive_metrics.csv",
+          "field": "Detection_Rate",
+          "position": {"x": 580, "y": 0, "width": 280, "height": 100},
+          "format": {"number_format": "0.00%", "font_size": 24}
+        },
+        {
+          "visual_type": "Card",
+          "title": "Average Risk Score",
+          "data_source": "executive_metrics.csv",
+          "field": "Average_Risk_Score",
+          "position": {"x": 870, "y": 0, "width": 280, "height": 100},
+          "format": {"number_format": "0.00", "font_size": 24}
+        },
+        {
+          "visual_type": "Line Chart",
+          "title": "Anomaly Trend Over Time",
+          "data_source": "time_series.csv",
+          "x_axis": "Month",
+          "y_axis": "Anomaly_Count",
+          "legend": "Quarter",
+          "position": {"x": 0, "y": 110, "width": 600, "height": 300},
+          "analytics": {"trend_line": true, "forecast": 3}
+        },
+        {
+          "visual_type": "Donut Chart",
+          "title": "Risk Level Distribution",
+          "data_source": "risk_distribution.csv",
+          "values": "Count",
+          "legend": "Risk_Level",
+          "position": {"x": 610, "y": 110, "width": 300, "height": 300},
+          "colors": {
+            "Low": "#4CAF50",
+            "Medium": "#FFC107",
+            "High": "#FF9800",
+            "Critical": "#F44336"
+          }
+        },
+        {
+          "visual_type": "Bar Chart",
+          "title": "Top 10 Entities by Anomaly Count",
+          "data_source": "entity_summary.csv",
+          "x_axis": "Entity",
+          "y_axis": "Anomaly_Count",
+          "position": {"x": 920, "y": 110, "width": 400, "height": 300},
+          "sort": {"field": "Anomaly_Count", "order": "descending"},
+          "top_n": 10
+        },
+        {
+          "visual_type": "KPI",
+          "title": "Total Amount Flagged",
+          "data_source": "executive_metrics.csv",
+          "field": "Total_Amount_Flagged",
+          "position": {"x": 0, "y": 420, "width": 400, "height": 150},
+          "format": {"number_format": "$#,##0.00", "font_size": 20}
+        }
+      ]
+    },
+    {
+      "page_name": "Detailed Analysis",
+      "page_number": 2,
+      "visuals": [
+        {
+          "visual_type": "Table",
+          "title": "Anomaly Details",
+          "data_source": "anomaly_details.csv",
+          "columns": [
+            {"field": "Entity", "width": 150},
+            {"field": "Date", "width": 100, "format": "MM/DD/YYYY"},
+            {"field": "Transaction_Amount", "width": 120, "format": "$#,##0.00"},
+            {"field": "Risk_Score", "width": 100, "format": "0.00"},
+            {"field": "Risk_Level", "width": 100},
+            {"field": "Agency", "width": 120},
+            {"field": "Recipient_Type", "width": 120}
+          ],
+          "position": {"x": 0, "y": 50, "width": 700, "height": 400},
+          "features": {
+            "sorting": true,
+            "filtering": true,
+            "conditional_formatting": {
+              "Risk_Level": {
+                "Critical": {"background": "#FFEBEE", "color": "#C62828"},
+                "High": {"background": "#FFF3E0", "color": "#E65100"},
+                "Medium": {"background": "#FFFDE7", "color": "#F57C00"},
+                "Low": {"background": "#F1F8E9", "color": "#558B2F"}
+              }
+            }
+          }
+        },
+        {
+          "visual_type": "Scatter Plot",
+          "title": "Transaction Amount vs Risk Score",
+          "data_source": "anomaly_details.csv",
+          "x_axis": "Transaction_Amount",
+          "y_axis": "Risk_Score",
+          "size": "Risk_Score",
+          "color": "Risk_Level",
+          "position": {"x": 710, "y": 50, "width": 500, "height": 400},
+          "analytics": {"regression_line": true}
+        },
+        {
+          "visual_type": "Heat Map",
+          "title": "Anomaly Pattern by Day and Hour",
+          "data_source": "heatmap_data.csv",
+          "rows": "Day_Name",
+          "columns": "Hour",
+          "values": "Count",
+          "position": {"x": 0, "y": 460, "width": 600, "height": 250},
+          "color_scale": {
+            "min_color": "#E3F2FD",
+            "mid_color": "#1976D2",
+            "max_color": "#0D47A1"
+          }
+        },
+        {
+          "visual_type": "Slicer",
+          "title": "Date Range",
+          "data_source": "anomaly_details.csv",
+          "field": "Date",
+          "type": "date_range",
+          "position": {"x": 1220, "y": 50, "width": 200, "height": 100}
+        },
+        {
+          "visual_type": "Slicer",
+          "title": "Agency",
+          "data_source": "anomaly_details.csv",
+          "field": "Agency",
+          "type": "dropdown",
+          "position": {"x": 1220, "y": 160, "width": 200, "height": 100}
+        },
+        {
+          "visual_type": "Slicer",
+          "title": "Risk Level",
+          "data_source": "anomaly_details.csv",
+          "field": "Risk_Level",
+          "type": "buttons",
+          "position": {"x": 1220, "y": 270, "width": 200, "height": 100}
+        }
+      ]
+    },
+    {
+      "page_name": "Explainability",
+      "page_number": 3,
+      "visuals": [
+        {
+          "visual_type": "Bar Chart",
+          "title": "Feature Importance (SHAP Values)",
+          "data_source": "feature_importance.csv",
+          "x_axis": "Feature",
+          "y_axis": "Importance_Percentage",
+          "position": {"x": 0, "y": 50, "width": 600, "height": 350},
+          "sort": {"field": "Importance_Percentage", "order": "descending"},
+          "colors": {"positive": "#4CAF50", "negative": "#F44336"}
+        },
+        {
+          "visual_type": "Text Box",
+          "title": "Methodology",
+          "content": "## Anomaly Detection Methodology\n\n### Algorithm\nThis dashboard uses advanced machine learning algorithms to detect anomalies in financial transactions:\n\n1. **Isolation Forest**: Identifies outliers by isolating observations\n2. **Risk Scoring**: Each transaction receives a risk score based on deviation from normal patterns\n3. **Feature Analysis**: Multiple features are analyzed including amount, timing, and entity characteristics\n\n### Risk Levels\n- **Low (0-1)**: Minor deviations, likely normal variations\n- **Medium (1-2)**: Moderate deviations requiring attention\n- **High (2-5)**: Significant anomalies needing investigation\n- **Critical (>5)**: Severe anomalies requiring immediate action\n\n### Data Sources\n- Transaction data is processed daily\n- Historical patterns are continuously updated\n- Feature importance is calculated using SHAP values",
+          "position": {"x": 610, "y": 50, "width": 500, "height": 350},
+          "format": {"font_size": 12, "markdown": true}
+        },
+        {
+          "visual_type": "Waterfall Chart",
+          "title": "Risk Score Contribution Breakdown",
+          "data_source": "feature_importance.csv",
+          "category": "Feature",
+          "values": "Importance",
+          "position": {"x": 0, "y": 410, "width": 600, "height": 300}
+        },
+        {
+          "visual_type": "Gauge",
+          "title": "Overall System Health",
+          "value": 85,
+          "min": 0,
+          "max": 100,
+          "position": {"x": 610, "y": 410, "width": 250, "height": 150},
+          "colors": {
+            "ranges": [
+              {"min": 0, "max": 50, "color": "#F44336"},
+              {"min": 50, "max": 75, "color": "#FFC107"},
+              {"min": 75, "max": 100, "color": "#4CAF50"}
+            ]
+          }
+        },
+        {
+          "visual_type": "Card",
+          "title": "Model Accuracy",
+          "value": "94.5%",
+          "position": {"x": 870, "y": 410, "width": 240, "height": 150},
+          "format": {"font_size": 32, "color": "#4CAF50"}
+        }
+      ]
+    }
+  ],
+  "data_connections": [
+    {
+      "name": "Anomaly Data",
+      "type": "CSV",
+      "folder_path": "./powerbi_data/",
+      "files": [
+        "anomaly_details.csv",
+        "executive_metrics.csv",
+        "time_series.csv",
+        "entity_summary.csv",
+        "heatmap_data.csv",
+        "feature_importance.csv",
+        "risk_distribution.csv"
+      ],
+      "refresh_settings": {
+        "auto_refresh": true,
+        "refresh_interval": "Daily",
+        "refresh_time": "06:00"
+      }
+    }
+  ],
+  "theme": {
+    "name": "Professional Dark",
+    "primary_color": "#1976D2",
+    "secondary_color": "#424242",
+    "accent_color": "#FF6B6B",
+    "background_color": "#FAFAFA",
+    "font_family": "Segoe UI"
+  },
+  "interactions": {
+    "cross_filtering": true,
+    "drill_through": {
+      "enabled": true,
+      "from_page": "Detailed Analysis",
+      "to_page": "Explainability",
+      "on_field": "Entity"
+    },
+    "bookmarks": [
+      {"name": "High Risk Only", "filters": {"Risk_Level": "Critical"}},
+      {"name": "Recent Anomalies", "filters": {"Date": "Last 7 Days"}},
+      {"name": "Health Sector", "filters": {"Agency": "Health"}}
+    ]
+  }
+}
