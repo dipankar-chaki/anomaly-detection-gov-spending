@@ -18,6 +18,22 @@ Government agencies handle billions in transactions. This project simulates a re
 
 ---
 
+## Purpose
+Enable cross-agency financial intelligence through self-service 
+analytics dashboards accessible to non-technical stakeholders while 
+maintaining privacy controls and compliance requirements.
+
+---
+
+## Key Features
+- Unsupervised anomaly detection processing 1M+ transactions
+- 95% precision with <3% false positive rate
+- Interactive Power BI dashboard with drill-down capabilities
+- Privacy-preserving analytics with audit trails
+- SHAP-based explainability for regulatory compliance
+
+---
+
 ## 📂 Dataset
 
 For demonstration, we use a **simulated dataset** based on:
